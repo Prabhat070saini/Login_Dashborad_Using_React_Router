@@ -12,6 +12,7 @@ export default function SignupFrom({ setIsLogin }) {
     });
     const navigate = useNavigate();
     const [showPassword, setshowPassword] = useState(false);
+    const [AccountType, setAccountType] = useState("Student");
     let ChangeHandler = (event) => {
         setFromData((prev) => (
             {
@@ -33,70 +34,82 @@ export default function SignupFrom({ setIsLogin }) {
     }
     return (
         <div>
-            <div>
-                <button>
+            <div className='flex rounded-full gap-z-1 max-w-max bg-richblack-800 p-1 my-6 '>
+                <button onClick={() => setAccountType("Student")}
+                    className={`${AccountType === "Student" ? " bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}>
                     Student
                 </button>
-                <button>
+                <button onClick={() => setAccountType("Insturctor")}
+                    className={`${AccountType === "Insturctor" ? " bg-richblack-900 text-richblack-5" : "bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}>
                     Instuctor
                 </button>
             </div>
-            <form onSubmit={submithandler}>
-                <div>
-                    <label >
-                        <p>First Name <sup>*</sup></p>
+            <form onSubmit={submithandler} className='gap-y-3'>
+                <div className='flex gap-x-3'>
+                    <label className='w-full'>
+                        <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>First Name <sup className='text-pink-200'>*</sup></p>
                         <input required type="text"
 
                             placeholder="First Name"
                             onChange={ChangeHandler}
                             value={FormData.FirstName}
                             name="firstName"
-
+                            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[0.5rem]'
                         />
                     </label>
-                    <label htmlFor="">
-                        <p>Last Name <sup>*</sup></p>
+                    <label className='w-full'>
+                        <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>Last Name <sup className='text-pink-200'>*</sup></p>
                         <input required type="text"
                             placeholder='Last Name'
                             onChange={ChangeHandler}
                             value={FormData.LastName}
                             name="lastName"
+                            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[0.5rem]'
                         />
                     </label>
-                </div>
-                <label >
-                    <p>Email <sup>*</sup></p>
-                    <input required type="email"
-                        placeholder='abc@gmail.com'
-                        name='email'
-                        onChange={ChangeHandler}
-                        value={FormData.email} />
-                </label>
-                <div>
+                </div >
+                <div className='w-full mt-3'>
                     <label >
-                        <p>Password <sup>*</sup></p>
+                        <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>Email <sup className='text-pink-200'>*</sup></p>
+                        <input required type="email"
+                            placeholder='abc@gmail.com'
+                            name='email'
+                            onChange={ChangeHandler}
+                            value={FormData.email}
+                            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[0.5rem]' />
+
+                    </label>
+                </div>
+
+                <div className='flex gap-x-3 mt-3'>
+                    <label className='w-full relative'>
+                        <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>Password <sup className='text-pink-200'>*</sup></p>
                         <input required type={showPassword ? ("text") : ("Password")}
-                            placeholder='Enter your password'
+                            placeholder='Enter Password'
                             name='password'
                             onChange={ChangeHandler}
-                            value={FormData.password} />
-                        <button onClick={() => setshowPassword(!showPassword)}>
-                            {showPassword ? (<AiOutlineEye />) : (<AiOutlineEyeInvisible />)}
+                            value={FormData.password}
+                            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[0.5rem]' />
+                        <button onClick={() => setshowPassword(!showPassword)}
+                            className='absolute right-3 top-[2.5rem] cursor-pointer'
+                        >
+                            {showPassword ? (<AiOutlineEye fontSize={16} fill='#AFB2BF' />) : (<AiOutlineEyeInvisible fontSize={16} fill='#AFB2BF' />)}
                         </button>
 
                     </label>
-                    <label htmlFor="">
-                        <p>Confirm Password <sup>*</sup></p>
+                    <label className='w-full'>
+                        <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>Confirm Password <sup className='text-pink-200'>*</sup></p>
                         <input required type="Password"
-                            placeholder='Enter your password'
+                            placeholder='Confirm Password'
                             name='confirmPassword'
                             onChange={ChangeHandler}
                             value={FormData.confirmPassword}
+                            className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[0.5rem]'
                         />
                     </label>
                 </div>
-                <button>Create Account</button>
+                <button className='w-full bg-yellow-50 rounded-[8px] font-medium text-richblack-700 px-[12px] py-[0.5rem] mt-5'>Create Account</button>
             </form>
-        </div>
+        </div >
     )
 }

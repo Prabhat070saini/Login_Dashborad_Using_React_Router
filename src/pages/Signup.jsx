@@ -3,11 +3,11 @@ import Template from '../Component/Template'
 import LoginImz from "../assets/signup.png"
 export default function Signup({ setIsLogin }) {
   return (
-    <div>
+    <div className='w-screen bg-richblack-900'>
       <Template
-        title="Login"
-        desc1="Login to your account"
-        desc2="Please enter your username and password"
+        title="Join the millsion of learning to code with StudyNation for free"
+        desc1="Build skills for today, tomorrow and beyond"
+        desc2="Education is future-proof your caree"
         Fromtype="Signup"
         image={LoginImz}
         setIsLogin={setIsLogin}

@@ -26,7 +26,7 @@ export default function LoginFrom({ setIsLogin }) {
     }
     return (
         <div>
-            <form onSubmit={Sumbithandler} className='flex flex-col w-full  gap-y-4 mt-6' >
+            <form onSubmit={Sumbithandler} className='flex flex-col w-full  gap-y-4 mt-3' >
                 <label className='w-full'>
                     <p className='text-[0.875rem] text-richblack-5 mb-1 leading-[1.375rem]'>Email <sup className='text-pink-200'>*</sup></p>
                     <input required type="email"
@@ -49,7 +49,7 @@ export default function LoginFrom({ setIsLogin }) {
                     </button>
                     <Link to="#"> <p className='text-xs mt-1 text-blue-100 max-w-max  ml-auto '> Forgot Password</p></Link>
                 </label>
-                <button className='bg-yellow-50 rounded-[8px] font-medium text-richblack-700 px-[12px] py-[0.5rem]'>Sign In</button>
+                <button className='w-full bg-yellow-50 rounded-[8px] font-medium text-richblack-700 px-[12px] py-[0.5rem]'>Sign In</button>
             </form>
         </div>
     )
