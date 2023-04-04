@@ -6,6 +6,7 @@ import Login from "./pages/Login"
 import Signup from "./pages/Signup";
 import Dashboard from "./pages/Dashboard";
 import { useState } from "react";
+import PrivaeRoute from "./Component/PrivaeRoute";
 function App() {
   const [Islogin, setIsLogin] = useState(false);
   return (
@@ -15,7 +16,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/Signup" element={<Signup setIsLogin={setIsLogin} />} />
         <Route path="/Login" element={<Login setIsLogin={setIsLogin} />} />
-        <Route path="/Dashboard" element={<Dashboard />} />
+        <Route path="/Dashboard" element={
+
+          <PrivaeRoute Islogin={Islogin}>
+            <Dashboard />
+          </PrivaeRoute>
+        } />
       </Routes>
     </div>
   )

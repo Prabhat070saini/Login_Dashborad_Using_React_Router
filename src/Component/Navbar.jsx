@@ -5,6 +5,7 @@ import { toast } from "react-hot-toast"
 export default function Navbar(props) {
     let Islogin = props.Islogin;
     let setIsLogin = props.setIsLogin;
+    // console.log(Islogin + " set is login");
     // let IsloginHandler = () => {
     //     // console.log(Islogin);
     //     setIsLogin(!Islogin);

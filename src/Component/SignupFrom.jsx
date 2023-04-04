@@ -29,7 +29,9 @@ export default function SignupFrom({ setIsLogin }) {
         }
         setIsLogin(true);
         toast.success("Account Created Successfully");
-        console.log(FormData);
+        // const temp = { ...FormData };
+        const FinalData = { ...FormData, AccountType };
+        // console.log(FinalData);
         navigate("/Dashboard")
     }
     return (
